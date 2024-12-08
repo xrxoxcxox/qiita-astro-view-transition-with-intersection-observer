@@ -20,6 +20,7 @@ const { Content } = await render(article);
       <img
         alt=""
         class="cover-image"
+        id="cover-image"
         src={article.data.coverImage}
         transition:name={`cover-image-${article.id}`}
       />
@@ -28,6 +29,33 @@ const { Content } = await render(article);
     </div>
   </div>
 </Layout>
+
+<script>
+  function setupImageTransition() {
+    const coverImage = document.querySelector("#cover-image");
+    if (!coverImage) return;
+
+    const initialScope = coverImage.getAttribute("data-astro-transition-scope");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && initialScope) {
+            coverImage.setAttribute("data-astro-transition-scope", initialScope);
+          } else {
+            coverImage.removeAttribute("data-astro-transition-scope");
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+      },
+    );
+
+    observer.observe(coverImage);
+  }
+
+  document.addEventListener("astro:page-load", setupImageTransition);
+</script>
 
 <style>
   .container {
