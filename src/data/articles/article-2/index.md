@@ -1,0 +1,83 @@
+---
+title: "デザイントークンをどのレイヤーまで定義すべきかの判断基準"
+coverImage: "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Fadvent-calendar-ogp-background-7940cd1c8db80a7ec40711d90f43539e.jpg%3Fixlib%3Drb-4.0.0%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkYwJTJGMjE0Njc3JTJGcHJvZmlsZS1pbWFnZXMlMkYxNjk0NTkyNDA1P2l4bGliPXJiLTQuMC4wJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZmbT1wbmczMiZzPWUyZWUzYzU5YWI3YmU2YTNhNzdhN2RhNTg1YWJlN2Jk%26blend-x%3D120%26blend-y%3D462%26blend-w%3D90%26blend-h%3D90%26blend-mode%3Dnormal%26mark64%3DaHR0cHM6Ly9xaWl0YS1vcmdhbml6YXRpb24taW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1vcmdhbml6YXRpb24taW1hZ2UlMkY4YTMwMDIzOGRmNzg0YzlmYzRlMDY4M2JjMjE0MWIzYzhjNWI3YjU4JTJGb3JpZ2luYWwuanBnJTNGMTYzODI4NjQ3Mz9peGxpYj1yYi00LjAuMCZ3PTQ0Jmg9NDQmZml0PWNyb3AmbWFzaz1jb3JuZXJzJmNvcm5lci1yYWRpdXM9OCZib3JkZXI9MiUyQ0ZGRkZGRiZmbT1wbmczMiZzPWEyMDY4NDQ1YTUxOGRmZmQzM2U4MzQ1ZTFkYzkwMzc1%26mark-x%3D186%26mark-y%3D515%26mark-w%3D40%26mark-h%3D40%26s%3D098c4c89f3864df165807eaa75f5a2cc?ixlib=rb-4.0.0&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTk2MCZoPTMyNCZ0eHQ9JUUzJTgzJTg3JUUzJTgyJUI2JUUzJTgyJUE0JUUzJTgzJUIzJUUzJTgzJTg4JUUzJTgzJUJDJUUzJTgyJUFGJUUzJTgzJUIzJUUzJTgyJTkyJUUzJTgxJUE5JUUzJTgxJUFFJUUzJTgzJUFDJUUzJTgyJUE0JUUzJTgzJUE0JUUzJTgzJUJDJUUzJTgxJUJFJUUzJTgxJUE3JUU1JUFFJTlBJUU3JUJFJUE5JUUzJTgxJTk5JUUzJTgxJUI5JUUzJTgxJThEJUUzJTgxJThCJUUzJTgxJUFFJUU1JTg4JUE0JUU2JTk2JUFEJUU1JTlGJUJBJUU2JUJBJTk2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMzQTNDM0MmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NWFjMTJiNTRhZWYyYTg4YTk0NTc2MTQ4ZTdkNGU5ZmU&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjAuMCZ3PTgzOCZoPTU4JnR4dD0lNDB4cnhveGN4b3gmdHh0LWNvbG9yPSUyMzNBM0MzQyZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz1mMzhlMDNlODEyZjRjNjYxNjRhMzFmYmU5MmIwYWZmYw&blend-x=242&blend-y=454&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&txt64=UWlpdGHmoKrlvI_kvJrnpL4&txt-x=242&txt-y=539&txt-width=838&txt-clip=end%2Cellipsis&txt-color=%233A3C3C&txt-font=Hiragino%20Sans%20W6&txt-size=28&s=0456282468eaf9e4eef35234bdc22df4"
+---
+
+## この記事の概要
+
+デザインシステムの中でも、デザイントークンの設定の仕方を迷う声を聞きます。
+いわゆるGlobal, Alias, Component-specificとどこまで定義すべきなのか分からないとか、定義したは良いものの使いこなせている自信がないとか、よく相談を受けます。
+
+というわけで、私がいくつかのプロダクトに関わった中で、個人的に考えるレイヤー分けの基準を記事にしました。
+
+:::note warn
+著名な本や有名なデザインシステムの記事とは反する部分もあるかもしれません。
+あくまで私が個人的な経験をもとに見えてきた閾値や基準をまとめた記事です。
+この記事の通りにするのが正しいという訳はなく、何か1つの参考になれば幸いという内容です。
+:::
+
+## Component-specificまで定義する
+
+私が思うに、大抵のプロダクトではComponent-specificレイヤーまで定義する必要はありません。
+
+非常に大規模で、1つのデザインシステムの中でプロダクトごとに複数のバリエーションがあるとか、ほぼ同一のコンポーネントなのにスタイルを変えないといけないとか、そういう複雑さでない限りComponent-specificレイヤーは不要だと思います。
+
+ただ、例外的に「**Global, Aliasともに継承しないものの、いきなりComponent-specificを定義する必要がある**」ようなものは設定してもいいかもしれません。
+
+例えば以下のようなものが挙げられます。
+
+- モーダルウィンドウ背景のScrimのカラー
+- SNSのロゴや共有リンクのコンポーネントでの、外部サービスのカラー
+- 「画面いっぱいに表示する」といった要件が重要なグラフィック系コンポーネントでのサイズや余白
+
+ただしお察しのようにとても「例外的」なものばかりで、常々定義するものではないはずです。
+
+まだ小さなプロダクトで、成熟しきってもないうちからいきなりComponent-specificレイヤーを定義するのは、大抵の場合時期尚早かと思います。
+
+## Aliasまで定義する
+
+私自身としては一番おすすめです。
+
+背景や前景のカラー、役割ごとの文字サイズ、重要度別の線幅や影などを定義し、名前と使用箇所が1:1対応になるよう定義します。
+
+同じトークンであっても役割が違うのであれば何度定義しても構いません。
+例えば、背景色の`#fff`と、メインカラーの上に乗せる文字色としての`#fff`は、色こそ同じですが役割が違います。
+そういう場合は、単に`#fff`（あるいは`gray-0`などのGlobalトークン）を使用するより、個別にAliasトークンを設定して使用する方が好ましいです。
+
+例えば「**背景色は`#fff`のままだけど、文字色は不透明度90%の`#fff`に変更したい**」といった調整が生まれる場合もあります。
+こういった場合の変更可用性を上げるという意味で、値が同じであっても、役割が違う場合には別のAliasトークンとして設定した方が良いです。
+
+一方で、同じ値を使うならGlobalレイヤーだけの設定でも良いのではないか？と思われるかもしれません。
+しかし、例えば`red-500`と`red-600`という名前の、濃さの違う赤色を見たとき、人間のファジーな評価ではどちらも「**中くらいの明度の赤**」と判断してしまいかねません。
+ですが`red-500`に`main-surfave`、`red-600`に`main-outline`という名前がついていれば、両者には「**メイン系の色のうち、サーフェス用とアウトライン用**」という区分が生まれます。
+これにより「背景色なら`red-500`だと思う」「いやいや`red-600`だよ」といった、難しい感覚のすり合わせに時間を使わず、組織で同一の基準を持てます。
+
+:::note alert
+人間それぞれの感性や知覚のセンサーは異なりますから「どうしても背景色が`red-500`なのはおかしい、絶対`red-600`であるべき」といった意見が生まれる可能性はあります。
+それも、組織規模が多くなればなるほど多様なべき論が飛び交います。
+デザインシステムやトークンを定義するのとは別に「我々の組織ではこの基準で判断する」というガバナンスを効かせる必要があります。
+:::
+
+## Globalまで定義する
+
+Globalまでの定義でも十分に機能するシーンは多いと思います。
+
+例えば、ページ数が少ないとか、繰り返し登場する要素が少ないとかの場合です。
+大まかに言えば「**成熟していない、生まれて日が浅いプロダクト**」でしょうか。
+
+こういったプロダクトで無理にAliasやComponent-specificを定義しても、後から上手く再利用できなかったり、苦労して定義した割にまったく使われなかったり、といったことが起きがちです。
+
+最初のうちはルールが混沌とするのは仕方のないことです。
+ただ、そんな中でもある程度長く運用していると「この表現には毎回この色を使っている」「この構成のとき、見出しと本文は毎回この比率だ」といった法則が生まれてきます。
+
+その段になってはじめて名前をつけてAliasとして管理し始めるのでも全然問題ないと思います。
+逆に言えば、それくらい繰り返し使用するまではあくまでGlobalな名前としてトークンを扱っているのでも良い、ということです。
+
+Globalトークンのままだと人によっていつどのトークンを使うか揺れてしまいがちではありますが、それでも無数の色・サイズの中から10種類程度には絞れているわけです。
+最初から完璧なトークンでなくても「現状ですら、無数の中から1つを選ぶよりはよっぽど効率的」と自信を持って良いと思います。
+
+## まとめ
+
+- 1つのデザインシステム内で複数ブランドを成立させる必要があるなど、非常に大規模で複雑：Component-specificまでの定義もあり得る
+- 生まれて間も無い / まだローンチしていない：Globalまでで十分かもしれない
+- それ以外（ほどほどの成熟度、ほどほどの規模の組織）：Aliasまであると便利

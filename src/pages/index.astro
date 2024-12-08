@@ -1,7 +1,51 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+const articles = await getCollection("articles");
 ---
 
 <Layout>
-  <p>Hello World</p>
+  <div class="container">
+    <div class="articles">
+      {
+        articles.map((article) => (
+          <a class="card" href={`/articles/${article.id}`}>
+            <img alt="" class="cover-image" src={article.data.coverImage} />
+            <p>{article.data.title}</p>
+          </a>
+        ))
+      }
+    </div>
+  </div>
 </Layout>
+
+<style>
+  .container {
+    display: flex;
+    justify-content: center;
+    background-color: #f0f0f0;
+    width: 100%;
+  }
+
+  .articles {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: min(100%, 40rem);
+    padding: 2rem;
+  }
+
+  .card {
+    padding: 1rem;
+    border-radius: 1rem;
+    color: inherit;
+    background-color: #fff;
+  }
+
+  .cover-image {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+</style>
