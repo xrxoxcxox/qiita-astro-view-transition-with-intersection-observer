@@ -10,7 +10,12 @@ const articles = await getCollection("articles");
       {
         articles.map((article) => (
           <a class="card" href={`/articles/${article.id}`}>
-            <img alt="" class="cover-image" src={article.data.coverImage} />
+            <img
+              alt=""
+              class="cover-image"
+              src={article.data.coverImage}
+              transition:name={`cover-image-${article.id}`}
+            />
             <p>{article.data.title}</p>
           </a>
         ))

@@ -17,7 +17,11 @@ const { Content } = await render(article);
 <Layout>
   <div class="container">
     <div class="article">
-      <img src={article.data.coverImage} alt="" />
+      <img
+        alt=""
+        src={article.data.coverImage}
+        transition:name={`cover-image-${article.id}`}
+      />
       <h1>{article.data.title}</h1>
       <Content />
     </div>
